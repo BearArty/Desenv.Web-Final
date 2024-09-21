@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Perfil</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/estilo.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="bg-dark text-light d-flex flex-column justify-content-between vh-100">
+
+  <div class="container-fluid p-4 bg-primary text-white text-center">
+    <h1>Gamesboxd</h1>
+    <p>Sistema Crud de Cadastro de Jogos</p> 
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Editar Perfil</h2>
+
+    <!-- Formulário centralizado e reduzido -->
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-8 col-10">
+        <form action="/editar-perfil" method="POST" id="editUser" name="editUser" class="bg-secondary p-4 rounded">
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="<%= user.nome %>" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="nickname">Nickname:</label>
+            <input type="text" name="nickname" id="nickname" value="<%= user.nickname %>" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" value="<%= user.email %>" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Nova Senha:</label>
+            <input type="password" name="senha" id="senha" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="confSenha">Confirmar Senha:</label>
+            <input type="password" name="confSenha" id="confSenha" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="genero_fav">Gênero Favorito:</label>
+            <select name="genero_fav" id="genero_fav" class="form-control" required>
+              <option value="">-- Selecione --</option>
+              <option value="souls_like" <%= user.genero_fav === 'souls_like' ? 'selected' : '' %>>Souls-Like</option>
+              <option value="acao" <%= user.genero_fav === 'acao' ? 'selected' : '' %>>Ação</option>
+              <option value="aventura" <%= user.genero_fav === 'aventura' ? 'selected' : '' %>>Aventura</option>
+              <option value="rpg" <%= user.genero_fav === 'rpg' ? 'selected' : '' %>>RPG</option>
+              <option value="estrategia" <%= user.genero_fav === 'estrategia' ? 'selected' : '' %>>Estratégia</option>
+              <option value="simulacao" <%= user.genero_fav === 'simulacao' ? 'selected' : '' %>>Simulação</option>
+              <option value="esportes" <%= user.genero_fav === 'esportes' ? 'selected' : '' %>>Esportes</option>
+              <option value="corrida" <%= user.genero_fav === 'corrida' ? 'selected' : '' %>>Corrida</option>
+              <option value="plataforma" <%= user.genero_fav === 'plataforma' ? 'selected' : '' %>>Plataforma</option>
+              <option value="terror" <%= user.genero_fav === 'terror' ? 'selected' : '' %>>Terror</option>
+              <option value="casual" <%= user.genero_fav === 'casual' ? 'selected' : '' %>>Casual</option>
+              <option value="multiplayer" <%= user.genero_fav === 'multiplayer' ? 'selected' : '' %>>Multiplayer</option>
+            </select>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            <a href="/perfil" class="btn btn-outline-light">Voltar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 Sistema Crud Node Sequelize - Arthur Bernardo. Todos os direitos reservados.</p>
+        <div class="social-icons mt-3">
+            <a href="#" target="_blank" class="me-2 icones"><i class="bi bi-whatsapp"></i></a> 
+            <a href="https://github.com/BearArty" target="_blank" class="me-2 icones"><i class="bi bi-github"></i></a>
+            <a href="https://www.threads.net/@arthur_bvp" target="_blank" class="me-2 icones"><i class="bi bi-threads"></i></a>
+            <a href="https://www.instagram.com/arthur_bvp/" target="_blank" class="me-2 icones"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Link para o Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/scriptEditPerfil.js"></script>
+</body>
+</html>

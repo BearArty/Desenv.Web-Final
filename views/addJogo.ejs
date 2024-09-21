@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Jogo</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/public/css/estilo.css">
+</head>
+<body class="bg-dark text-light d-flex flex-column justify-content-between vh-100">
+
+  <div class="container-fluid p-4 bg-primary text-white text-center">
+    <h1>Gamesboxd</h1>
+    <p>Sistema Crud de Cadastro de Jogos</p> 
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Cadastrar Jogo</h2>
+
+    <form action="/add-jogo" method="POST" enctype="multipart/form-data" class="p-4 bg-secondary rounded">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Insira o nome do jogo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="genero_principal">Gênero Principal:</label>
+        <input type="text" class="form-control" id="genero_principal" name="genero_principal" placeholder="Insira o gênero principal" required>
+      </div>
+
+      <div class="form-group">
+        <label for="desenvolvedor">Desenvolvedor(a):</label>
+        <input type="text" class="form-control" id="desenvolvedor" name="desenvolvedor" placeholder="Nome do desenvolvedor(a)" required>
+      </div>
+
+      <div class="form-group">
+        <label for="estudio">Estúdio:</label>
+        <input type="text" class="form-control" id="estudio" name="estudio" placeholder="Nome do estúdio" required>
+      </div>
+
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <textarea class="form-control" id="descricao" name="descricao" rows="4" placeholder="Descrição do jogo"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="data_lanc">Data de Lançamento:</label>
+        <input type="date" class="form-control" id="data_lanc" name="data_lanc" required>
+      </div>
+
+      <div class="form-group">
+        <label for="imagem">Capa do Jogo:</label>
+        <input type="file" class="form-control-file" id="imagem" name="imagem" accept="image/*">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mt-4" id="cadastrarJogo" name="cadastrarJogo">Cadastrar Jogo</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <a href="/dashboard" class="btn btn-outline-light">Voltar</a>
+    </div>
+  </div>
+
+  <footer class="text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 Sistema Crud Node Sequelize - Arthur Bernardo. Todos os direitos reservados.</p>
+        <div class="social-icons mt-3">
+            <a href="#" target="_blank" class="me-2 icones"><i class="bi bi-whatsapp"></i></a> 
+            <a href="https://github.com/BearArty" target="_blank" class="me-2 icones"><i class="bi bi-github"></i></a>
+            <a href="https://www.threads.net/@arthur_bvp" target="_blank" class="me-2 icones"><i class="bi bi-threads"></i></a>
+            <a href="https://www.instagram.com/arthur_bvp/" target="_blank" class="me-2 icones"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+
+  <script src="/js/scriptCadJogo.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

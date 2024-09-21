@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Status Jogando</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/estilo.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body class="bg-dark text-light d-flex flex-column justify-content-between vh-100">
+
+  <div class="container-fluid p-4 bg-primary text-white text-center">
+    <h1>Gamesboxd</h1>
+    <p>Sistema Crud de Cadastro de Jogos</p> 
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Editar Status da Jogatina</h2>
+    <br><br>
+    <h3 class="mb-4 text-center">Jogo: <%= jogo.nome %></h3>
+
+    <div class="text-center mb-4">
+      <% if (jogo.imagem) { %>
+        <img src="/uploads/<%= jogo.imagem %>" class="img-fluid" style="max-width: 200px; max-height: 300px;" alt="Imagem do Jogo">
+      <% } else { %>
+        <p class="text-muted">Sem imagem</p>
+      <% } %>
+    </div>
+
+    <!-- Formulário centralizado e reduzido -->
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-8 col-10">
+        <form action="/editar-status/<%= jogando.id_jogo %>" method="POST" class="bg-secondary p-4 rounded">
+          <div class="form-group">
+            <label for="status_jogo">Status da Jogatina:</label>
+            <select name="status_jogo" id="status_jogo" class="form-control" required>
+              <option value="Não iniciado" <%= jogando.status_jogo === 'Não iniciado' ? 'selected' : '' %>>Não iniciado</option>
+              <option value="Em andamento" <%= jogando.status_jogo === 'Em andamento' ? 'selected' : '' %>>Em andamento</option>
+              <option value="Concluído" <%= jogando.status_jogo === 'Concluído' ? 'selected' : '' %>>Concluído</option>
+            </select>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Atualizar Status</button>
+            <a href="/perfil" class="btn btn-outline-light">Voltar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 Sistema Crud Node Sequelize - Arthur Bernardo. Todos os direitos reservados.</p>
+        <div class="social-icons mt-3">
+            <a href="#" target="_blank" class="me-2 icones"><i class="bi bi-whatsapp"></i></a> 
+            <a href="https://github.com/BearArty" target="_blank" class="me-2 icones"><i class="bi bi-github"></i></a>
+            <a href="https://www.threads.net/@arthur_bvp" target="_blank" class="me-2 icones"><i class="bi bi-threads"></i></a>
+            <a href="https://www.instagram.com/arthur_bvp/" target="_blank" class="me-2 icones"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/scriptAttStatus.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* Paleta de cores */
+:root {
+    --primary-bg: #121212; /* Fundo principal */
+    --secondary-bg: #1E1E1E; /* Fundo secundário (elementos como tabelas e formulários) */
+    --primary-text: #E0E0E0; /* Texto principal */
+    --secondary-text: #B3B3B3; /* Texto secundário */
+    --accent-color: #BB86FC; /* Cor de destaque (botões, links) */
+    --hover-color: #3700B3; /* Cor de hover para botões */
+    --border-color: #333; /* Cor das bordas */
+    --error-color: #CF6679; /* Cor de erro (inputs inválidos) */
+  }
+  
+  /* Estilos globais */
+  body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-text);
+  }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--hover-color);
+  }
+  
+  /* Botões */
+  button {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  /* Tabelas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+  }
+  
+  table th, table td {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+  
+  table th {
+    background-color: var(--primary-bg);
+    color: var(--secondary-text);
+  }
+  
+  /* Formulários */
+  input, select, textarea {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  
+  input[type="submit"], input[type="button"] {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: var(--hover-color);
+  }
+  
+  /* Mensagens de erro */
+  .error {
+    color: var(--error-color);
+  }
+  

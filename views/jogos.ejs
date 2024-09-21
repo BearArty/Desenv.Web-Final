@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogos Cadastrados</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    th, td {
+      border-left: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-light">
+
+  <div class="container-fluid p-4 bg-primary text-white text-center">
+    <h1>Gamesboxd</h1>
+    <p>Sistema Crud de Cadastro de Jogos</p> 
+  </div>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Jogos Cadastrados</h2>
+
+    <table class="table table-dark table-striped w-100">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Gênero Principal</th>
+          <th>Desenvolvedor(a)</th>
+          <th>Estúdio</th>
+          <th>Descrição</th>
+          <th>Data de Lançamento</th>
+          <th>Imagem</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% jogos.forEach(jogo => { %>
+          <tr>
+            <td><%= jogo.id_jogo %></td>
+            <td><%= jogo.nome %></td>
+            <td><%= jogo.genero_principal %></td>
+            <td><%= jogo.desenvolvedor %></td>
+            <td><%= jogo.estudio %></td>
+            <td><%= jogo.descricao %></td>
+            <td><%= jogo.data_lanc %></td>
+            <td>
+              <% if (jogo.imagem) { %>
+                <img src="/uploads/<%= jogo.imagem %>"  alt="Imagem do Jogo" class="img-fluid">
+              <% } else { %>
+                Sem imagem
+              <% } %>
+            </td>
+            <td>
+              <a href="/edit-jogo/<%= jogo.id_jogo %>" class="btn btn-warning">Editar</a><br><br>
+              <form action="/delete-jogo/<%= jogo.id_jogo %>" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                <button type="submit" class="btn btn-danger">Excluir</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <br><br>
+    <div class="text-center mt-3">
+      <a href="/dashboard" class="btn btn-outline-light">Voltar ao dashboard</a>
+    </div>
+  </div>
+
+  <footer class="text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 Sistema Crud Node Sequelize - Arthur Bernardo. Todos os direitos reservados.</p>
+        <div class="social-icons mt-3">
+            <a href="#" target="_blank" class="me-2 icones"><i class="bi bi-whatsapp"></i></a> 
+            <a href="https://github.com/BearArty" target="_blank" class="me-2 icones"><i class="bi bi-github"></i></a>
+            <a href="https://www.threads.net/@arthur_bvp" target="_blank" class="me-2 icones"><i class="bi bi-threads"></i></a>
+            <a href="https://www.instagram.com/arthur_bvp/" target="_blank" class="me-2 icones"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
